@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:00:37 by kvebers           #+#    #+#             */
-/*   Updated: 2022/11/25 12:40:48 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/11/25 12:40:40 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_temp(char *temp, int fd, int read_mode)
 {
@@ -78,17 +78,17 @@ char	*ft_yeet_lines(char *temp, int cnt1, int cnt2)
 
 char	*get_next_line(int fd)
 {
-	static char	*temp;
+	static char	*temp[1024];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= 1024)
 		return (NULL);
-	temp = get_temp(temp, fd, 1);
-	if (temp == NULL)
+	temp[fd] = get_temp(temp[fd], fd, 1);
+	if (temp[fd] == NULL)
 		return (NULL);
-	line = ft_line(temp, 0);
+	line = ft_line(temp[fd], 0);
 	if (ft_strchr(line, '\n') == NULL && ft_strlen(line) == 0)
-		return (free(line), free(temp), NULL);
-	temp = ft_yeet_lines(temp, 0, 0);
+		return (free(line), free(temp[fd]), NULL);
+	temp[fd] = ft_yeet_lines(temp[fd], 0, 0);
 	return (line);
 }
