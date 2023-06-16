@@ -3,6 +3,7 @@ This is a test to get better understanding how the read function works and how t
 Huge thanks to https://tomah56.github.io/42_hackatlon/code/level_3.html very good project to learn the basics of the get_next_line
 */
 #include "get_next_line.h"
+#include <unistd.h>
 
 int main(void)
 {
@@ -17,6 +18,7 @@ int main(void)
 		free(str);
 		str = get_next_line(fd);
 	}
+
 	close(fd);
 	return (0);
 }

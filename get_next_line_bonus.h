@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 12:39:44 by kvebers           #+#    #+#             */
-/*   Updated: 2022/11/25 12:22:56 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/16 10:20:00 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+
+#define BUFFER_SIZE 42
 
 char	*ft_strchr(const char *s, int c);
 char	*get_next_line(int fd);
