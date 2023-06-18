@@ -5,7 +5,7 @@ SRC = get_next_line_bonus.c \
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
-NAME = animation
+NAME = how_to_use_get_next_line
 OBJ = $(SRC:.c=.o)
 
 $(NAME): $(OBJ)
